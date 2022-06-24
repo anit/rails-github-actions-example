@@ -63,3 +63,13 @@ jobs:
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
         run: rspec
+      - name: RSpec Report
+        uses: SonicGarden/rspec-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          json-path: tmp/rspec_results.json
+        if: always()
+      - name: Simplecov Report
+        uses: aki77/simplecov-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
