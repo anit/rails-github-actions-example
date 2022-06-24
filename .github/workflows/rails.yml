@@ -72,6 +72,6 @@ jobs:
           json-path: tmp/rspec_results.json
         if: always()
       - name: Simplecov Report
-        uses: aki77/simplecov-report-action@v1
+        uses: aki77/simplecov-report-action@v1.4.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
